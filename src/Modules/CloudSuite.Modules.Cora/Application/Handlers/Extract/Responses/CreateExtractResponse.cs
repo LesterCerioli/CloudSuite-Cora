@@ -1,5 +1,5 @@
 using CloudSuite.Modules.Cora.Application.Core;
-using System.ComponentModel.DataAnnotations;
+using FluentValidation.Results;
 
 namespace CloudSuite.Modules.Cora.Application.Handlers.Extrato.Responses
 {
@@ -11,7 +11,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Extrato.Responses
         {
             RequestId = requestId;
 
-            foreach (var item in result.Error)
+            foreach (var item in result.Errors)
             {
                 this.AddError(item.ErrorMessage);
             }
@@ -19,7 +19,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Extrato.Responses
 
         public CreateExtractResponse(Guid requestId, string falseValidation)
         {
-            RequestId = RequestId;
+            RequestId = requestId;
             this.AddError(falseValidation);
         }
     }
