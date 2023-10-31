@@ -22,5 +22,6 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Extrato.Responses
             RequestId = requestId;
             this.AddError(falseValidation);
         }
+
     }
 }

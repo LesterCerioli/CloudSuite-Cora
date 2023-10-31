@@ -17,5 +17,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Extract.Request
             StartDate = startDate;
             EndDate = endDate;
         }
+
     }
 }
+

@@ -25,5 +25,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Extract.Responses
             Exists = false;
             this.AddError(falseValidation);
         }
+
     }
 }
+

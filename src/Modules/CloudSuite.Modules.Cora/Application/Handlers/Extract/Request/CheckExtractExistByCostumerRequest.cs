@@ -21,5 +21,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Extract.Request
             Id = Guid.NewGuid();
             Customer = customer;
         }
+
     }
 }
+
