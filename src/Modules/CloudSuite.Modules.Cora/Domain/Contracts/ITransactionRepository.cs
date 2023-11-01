@@ -1,4 +1,4 @@
-using System.Transactions;
+using CloudSuite.Modules.Cora.Domain.Models;
 
 namespace CloudSuite.Modules.Cora.Domain.Contracts
 {
@@ -15,7 +15,6 @@ namespace CloudSuite.Modules.Cora.Domain.Contracts
         void Update(Transaction transaction);
 
         void Remove(Transaction transaction);
-
-                
+   
     }
 }
