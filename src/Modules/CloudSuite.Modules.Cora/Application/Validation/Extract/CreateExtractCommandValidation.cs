@@ -1,12 +1,5 @@
-﻿using CloudSuite.Modules.Common.ValueObjects;
-using CloudSuite.Modules.Cora.Application.Handlers.Extrato;
+﻿using CloudSuite.Modules.Cora.Application.Handlers.Extrato;
 using FluentValidation;
-using NetDevPack.Messaging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Cora.Application.Validation.Extract
 {

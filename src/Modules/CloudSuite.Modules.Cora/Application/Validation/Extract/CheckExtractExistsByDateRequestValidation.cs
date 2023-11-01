@@ -1,11 +1,5 @@
 ﻿using CloudSuite.Modules.Cora.Application.Handlers.Extract.Request;
 using FluentValidation;
-using FluentValidation.Results;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Cora.Application.Validation.Extract
 {
