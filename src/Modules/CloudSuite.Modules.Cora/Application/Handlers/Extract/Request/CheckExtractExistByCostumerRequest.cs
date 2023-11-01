@@ -22,6 +22,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Extract.Request
             Customer = customer;
         }
 
+        public CheckExtractExistByCostumerRequest() {}
     }
 }
 

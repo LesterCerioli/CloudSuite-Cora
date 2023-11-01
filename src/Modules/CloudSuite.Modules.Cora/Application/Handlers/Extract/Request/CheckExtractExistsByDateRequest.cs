@@ -18,6 +18,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Extract.Request
             EndDate = endDate;
         }
 
+        public CheckExtractExistsByDateRequest() {}
     }
 }
 
