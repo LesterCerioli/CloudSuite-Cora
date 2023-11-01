@@ -1,19 +1,10 @@
-﻿using CloudSuite.Modules.Cora.Application.Handlers.Extract;
-using CloudSuite.Modules.Cora.Application.Handlers.Extract.Request;
-using CloudSuite.Modules.Cora.Application.Handlers.Extract.Responses;
-using CloudSuite.Modules.Cora.Application.Handlers.Transactions.Requests;
+﻿using CloudSuite.Modules.Cora.Application.Handlers.Transactions.Requests;
 using CloudSuite.Modules.Cora.Application.Handlers.Transactions.Responses;
-using CloudSuite.Modules.Cora.Application.Validation.Extract;
 using CloudSuite.Modules.Cora.Application.Validation.Transaction;
 using CloudSuite.Modules.Cora.Domain.Contracts;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Cora.Application.Handlers.Transactions
 {
