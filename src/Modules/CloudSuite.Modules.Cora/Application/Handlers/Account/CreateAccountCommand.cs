@@ -28,7 +28,8 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Account
                 this.AccountDigit,
                 this.Agency,
                 this.BankName,
-                this.BankCode);
+                this.BankCode
+                );
             
         }
     }
