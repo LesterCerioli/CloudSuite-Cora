@@ -22,17 +22,15 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Account
         {
             _logger.LogInformation($"CreateAccountCommand: {JsonSerializer.Serialize(command)}");
 
-            // Validate the command
             var validationResult = new CreateAccountCommandValidation().Validate(command);
 
             if (validationResult.IsValid)
             {
                 try
                 {
-                    // Create an AccountEntity from the command
+
                     var account = command.GetEntity();
 
-                    // Replace these lines with your actual repository methods
                     var accountNumberExists = await _accountRepository.GetByAccountNumber(account.AccountNumber);
                     var accountDigitExists = await _accountRepository.GetByAccountDigit(account.AccountDigit);
                     var accountNameExists = await _accountRepository.GetByBankName(account.BankName);
