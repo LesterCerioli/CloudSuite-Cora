@@ -1,9 +1,14 @@
-namespace CloudSuite.Modules.Cora.Tests.Application.Hadlers.Extracts
+using CloudSuite.Modules.Cora.Application.Handlers.Account.Responses;
+using FluentValidation.Results;
+using System;
+using Xunit;
+
+namespace CloudSuite.Modules.Cora.Tests.Application.Hadlers.Accounts
 {
-    public class CreateExtractResponseTests
+    public class CreateAccountResponseTests
     {
         [Fact]
-        public void CreateExtractResponse_WithValidationResult_ShouldInitializeCorrectly()
+        public void Constructor_WithValidationResult_ShouldInitializeProperties()
         {
             // Arrange
             Guid requestId = Guid.NewGuid();
@@ -12,7 +17,7 @@ namespace CloudSuite.Modules.Cora.Tests.Application.Hadlers.Extracts
             validationResult.Errors.Add(new ValidationFailure("AnotherProperty", "Error message 2"));
 
             // Act
-            CreateExtractResponse response = new CreateExtractResponse(requestId, validationResult);
+            CreateAccountResponse response = new CreateAccountResponse(requestId, validationResult);
 
             // Assert
             Assert.Equal(requestId, response.RequestId);
@@ -21,19 +26,18 @@ namespace CloudSuite.Modules.Cora.Tests.Application.Hadlers.Extracts
         }
 
         [Fact]
-        public void CreateExtractResponse_WithStringFalseValidation_ShouldInitializeCorrectly()
+        public void Constructor_WithStringFalhaValidacao_ShouldInitializeProperties()
         {
             // Arrange
             Guid requestId = Guid.NewGuid();
-            string falseValidation = "False validation error message";
+            string falhaValidacao = "Validation failed";
 
             // Act
-            CreateExtractResponse response = new CreateExtractResponse(requestId, falseValidation);
+            CreateAccountResponse response = new CreateAccountResponse(requestId, falhaValidacao);
 
             // Assert
             Assert.Equal(requestId, response.RequestId);
-            Assert.Contains(falseValidation, response.Errors);
+            Assert.Contains(falhaValidacao, response.Errors);
         }
-        
     }
 }
