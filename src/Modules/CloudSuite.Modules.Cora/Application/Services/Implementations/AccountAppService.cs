@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Cora.Application.Services.Implementations
 {
-    public class AccountAppService 
+    public class AccountAppService : IAccountAppService
     {
         
     }
