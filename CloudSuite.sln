@@ -13,17 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudSuite.Infrastructure",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudSuite.Infrastructure.CrossCutting", "src\Infrastructure\CloudSuite.Infrastructure.CrossCutting\CloudSuite.Infrastructure.CrossCutting.csproj", "{1BC6F06F-8EE8-4079-A6FA-8C952F3A6302}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rest", "Rest", "{31621493-F2A2-445C-8A28-1CEE0CD7D57E}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudSuite.Services.Core.API", "src\Rest\CloudSuite.Services.Core.API\CloudSuite.Services.Core.API.csproj", "{ADDB1B8F-987E-4BBC-B58C-391692D181C0}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudSuite.Modules.Common", "src\Modules\CloudSuite.Modules.Common\CloudSuite.Modules.Common.csproj", "{D95D3C95-2488-4FD2-A310-77C6C5550DA9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudSuite.Services.Cora.API", "src\Rest\CloudSuite.Services.Cora.API\CloudSuite.Services.Cora.API.csproj", "{994D02FE-C948-4385-B57B-393DB05B792C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudSuite.Modules.Core", "src\Modules\CloudSuite.Modules.Core\CloudSuite.Modules.Core.csproj", "{204EB564-F947-4747-8642-651846530AC2}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudSuite.Modules.Cora", "src\Modules\CloudSuite.Modules.Cora\CloudSuite.Modules.Cora.csproj", "{AFF42647-4C8B-4ED6-A18A-90064620FC63}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{6497CB00-5E25-4DE4-AEBA-3CE2916AF27E}"
 EndProject
