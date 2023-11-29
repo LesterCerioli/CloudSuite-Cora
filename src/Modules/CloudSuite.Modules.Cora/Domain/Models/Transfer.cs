@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NetDevPack.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Cora.Domain.Models
 {
-	public class Transfer
+	public class Transfer : Entity, IAggregateRoot
 	{
 		public Transfer(Account account, string? amoumt, string? description, 
 			string? code, string? category, DateTimeOffset? creationDate, 
