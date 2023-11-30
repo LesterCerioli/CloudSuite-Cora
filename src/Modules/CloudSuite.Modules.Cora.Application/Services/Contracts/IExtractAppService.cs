@@ -1,4 +1,7 @@
+using CloudSuite.Modules.Common.Enums.Cora;
+using CloudSuite.Modules.Common.ValueObjects;
 using CloudSuite.Modules.Cora.Application.Handlers.Account;
+using CloudSuite.Modules.Cora.Application.Handlers.Extrato;
 using CloudSuite.Modules.Cora.Application.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -18,9 +21,9 @@ namespace CloudSuite.Modules.Cora.Application.Services.Contracts
 
         Task<ExtractViewModel> GetByEntryType(OperationTypeEnum entryType);
 
-        Task<ExtractViewmodel> GetByEntryAmount(decimal entryAmount);
+        Task<ExtractViewModel> GetByEntryAmount(decimal entryAmount);
 
-        Task Save(CreateExtractCommand createCommand);
+        Task Save(CreateExtractCommand commandCreate);
          
     }
 }

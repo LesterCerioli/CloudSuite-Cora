@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CloudSuite.Infrastructure.Data.Repositories.Core
+namespace CloudSuite.Modules.Cora.Application.Handlers.Transfer
 {
-	internal class SampleRepository
+	internal class CreateTransferCommand
 	{
 	}
 }
