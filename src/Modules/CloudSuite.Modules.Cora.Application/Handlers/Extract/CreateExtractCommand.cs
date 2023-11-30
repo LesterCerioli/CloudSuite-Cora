@@ -13,18 +13,18 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Extrato
         public Guid Id { get; private set; }
 
         [Required(ErrorMessage = "The {0} field is required.")]
-        public DateTimeOffset StartDate { get; private set; }
+        public DateTimeOffset StartDate { get; set; }
 
-        public decimal StartBalance { get; private set; }
+        public decimal StartBalance { get; set; }
 
         [Required(ErrorMessage = "The {0} field is required.")]
-        public DateTimeOffset EndDate { get; private set; }
+        public DateTimeOffset EndDate { get; set; }
 
-        public decimal EndBalance { get; private set; }
+        public decimal EndBalance { get; set; }
 
-        public Customer? Customer { get; private set; }
+        public Customer? Customer { get; set; }
 
-        public Transaction? Transaction { get; private set; }
+        public Transaction? Transaction { get; set; }
 
         public decimal? AggregationsCreditTotal { get; private set; }
 

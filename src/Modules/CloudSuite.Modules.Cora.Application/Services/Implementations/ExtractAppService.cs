@@ -44,11 +44,7 @@ namespace CloudSuite.Modules.Cora.Application.Services.Implementations
 			return _mapper.Map<ExtractViewModel>(await _extractRepository.GetByEntryAmount(entryAmount));
 		}
 
-		public async Task<ExtractViewModel> GetByEntryType(OperationTypeEnum entryType)
-		{
-			return _mapper.Map<ExtractViewModel>(await _extractRepository.GetByEntryType(entryType));
-		}
-
+		
 		public async Task<ExtractViewModel> GetByStartDate(DateTimeOffset startDate)
 		{
 			return _mapper.Map<ExtractViewModel>(await _extractRepository.GetByStartDate(startDate));
@@ -62,6 +58,11 @@ namespace CloudSuite.Modules.Cora.Application.Services.Implementations
 		public async Task Save(CreateExtractCommand commandCreate)
 		{
 			await _extractRepository.Add(commandCreate.GetEntity());
+		}
+
+		public Task<ExtractViewModel> GetByEntryType(OperationTypeEnum entryType)
+		{
+			throw new NotImplementedException();
 		}
 	}
 }
