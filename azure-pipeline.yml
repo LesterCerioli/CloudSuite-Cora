@@ -9,13 +9,13 @@ jobs:
 
 - job: Linux
   pool:
-    vmImage: 'ubuntu-server'
+    name: 'DK3'
   steps:
   - task: UseDotNet@2
     displayName: 'Use .NET Core sdk'
     inputs:
       packageType: 'sdk'
-      version: '6.0.125'
+      version: '6.0.413'
   - script: dotnet build ./CloudSuite.sln
     displayName: 'dotnet build'
   - task: DotNetCoreCLI@2
