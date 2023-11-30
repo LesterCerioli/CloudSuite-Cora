@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Cora.Domain.Contracts
 {
-	public interface ITransferFilter
+	public interface ITransferFilterRepository
 	{
 		Task<TransferFilter> GetByStartDate(DateTime startDate);
 

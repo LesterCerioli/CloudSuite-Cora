@@ -2,9 +2,9 @@ using CloudSuite.Modules.Cora.Domain.Models;
 
 namespace CloudSuite.Modules.Cora.Domain.Contracts
 {
-    public interface TransactionRepository
+    public interface ITransactionRepository
     {
-        Task<Transaction> GetByCounterPartyName(string EntryTransactionCounterPartyName);
+        Task<Transaction> GetByCounterPartyName(string entryTransactionCounterPartyName);
 
         Task<Transaction> GetByTransactionOrder(string transactionOrder);
 

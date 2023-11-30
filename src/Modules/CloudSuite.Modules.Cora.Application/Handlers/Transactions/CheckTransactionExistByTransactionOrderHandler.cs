@@ -1,4 +1,5 @@
-﻿using CloudSuite.Modules.Cora.Application.Handlers.Transactions.Requests;
+﻿using CloudSuite.Infrastructure.Data.Repositories.Cora;
+using CloudSuite.Modules.Cora.Application.Handlers.Transactions.Requests;
 using CloudSuite.Modules.Cora.Application.Handlers.Transactions.Responses;
 using CloudSuite.Modules.Cora.Application.Validation.Transaction;
 using CloudSuite.Modules.Cora.Domain.Contracts;

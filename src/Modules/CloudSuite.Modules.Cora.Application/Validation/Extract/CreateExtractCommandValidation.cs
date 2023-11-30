@@ -59,9 +59,9 @@ namespace CloudSuite.Modules.Cora.Application.Validation.Extract
             .MaximumLength(40)
             .WithMessage("O sobrenome deve ter no máximo 40 caracteres.");
 
-            RuleFor(a => a.Transaction.Operation)
-            .IsInEnum()
-            .WithMessage("A operação não é um tipo enum válido.");
+            //RuleFor(a => a.Transaction.Operation)
+            //.IsInEnum()
+            //.WithMessage("A operação não é um tipo enum válido.");
 
             RuleFor(a => a.Transaction.TransactionTypeEnum)
             .IsInEnum()

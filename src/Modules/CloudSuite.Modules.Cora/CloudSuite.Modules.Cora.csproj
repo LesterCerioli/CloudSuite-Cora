@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Domain\Contracts\ITransactionRepository.cs~RF5b2c4b3.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="NetDevPack" Version="6.1.0" />
   </ItemGroup>
 
