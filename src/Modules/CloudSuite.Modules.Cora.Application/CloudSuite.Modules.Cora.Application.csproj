@@ -19,4 +19,8 @@
     <ProjectReference Include="..\CloudSuite.Modules.Cora\CloudSuite.Modules.Cora.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Validation\Transfer\" />
+  </ItemGroup>
+
 </Project>
