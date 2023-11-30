@@ -12,56 +12,50 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Cora.Application.Services.Implementations
 {
-    public class AccountAppService  : IAccountAppService
-    {
-        private readonly IMapper _mapper;
-        private readonly IAccountRepository _accountRepository;
-        private readonly IMediatorHandler _mediator;
-        
-        public AccountAppService(
-            IAccountRepository accountRepository
-            IMediatorHandler mediator,
-            IMapper mapper
-        )
-        {
-            _mapper = mapper;
-            _accountRepository = accountRepository;
-            _mediator = mediator;
+	public class AccountAppService : IAccountAppService
+	{
+		private readonly IAccountRepository _accountRepository;
+		private readonly IMediatorHandler _mediator;
+		private readonly IMapper _mapper;
 
-        }
+		public AccountAppService(
+			IAccountRepository accountRepository,
+			IMediatorHandler mediator,
+			IMapper mapper)
+		{
+			_accountRepository = accountRepository;
+			_mediator = mediator;
+			_mapper = mapper;
 
-        public async Task<AccountViewModel> GetByBankCode(string bankCode)
-        {
-            return _mapper.Map<AccountViewModel>(await _accountRepository.GetByCod(bankCode));
+		}
+		public async Task<AccountViewModel> GetByAccountDigit(string accountDigit)
+		{
+			return _mapper.Map<AccountViewModel>(await _accountRepository.GetByAccountDigit(accountDigit));
+		}
 
-        }
+		public async Task<AccountViewModel> GetByAccountNumber(string accountNumber)
+		{
+			return _mapper.Map<AccountViewModel>(await _accountRepository.GetByAccountNumber(accountNumber));
+		}
 
-        public async Task<AccountViewModel> GetByAgency(string agency)
-        {
-            return _mapper.Map<AccountViewModel>(await _accountRepository.GetByAgency(agency));
-        }
+		public async Task<AccountViewModel> GetByAgency(string agency)
+		{
+			return _mapper.Map<AccountViewModel>(await _accountRepository.GetByAgency(agency));
+		}
 
-        public async Task<AccountViewModel> GetByAccountNumber(string accountNumber)
-        {
-            return _mapper.Map<AccountViewModel>(await _accountRepository.GetByAccountNumber(accountNumber));
-        }
+		public async Task<AccountViewModel> GetByBankCode(string bankCode)
+		{
+			return _mapper.Map<AccountViewModel>(await _accountRepository.GetByBankCode(bankCode));
+		}
 
-        public async Task<AccountViewModel> GetByAccountDigit(string accountDigit)
-        {
-            return _mapper.Map<AccountViewModel>(await _accountrepository.GetByAccountDigit(accountDigit));
-        }
-
-        public void Dispose()
-        {
-            GC.SuppressFinalize(this);
-        }
-
-        public async Task Save(CreateCityCommand commandCreate)
-        {
-            await _accountRepositoryRepository.Add(commandCreate.GetEntity());
-        }
-
-
-        
-    }
+		public void Dispose()
+		{
+			GC.SuppressFinalize(this);
+		}
+		
+		public async Task Save(CreateAccountCommand createCommand)
+		{
+			await _accountRepository.Add(createCommand.GetEntity());
+		}
+	}
 }
