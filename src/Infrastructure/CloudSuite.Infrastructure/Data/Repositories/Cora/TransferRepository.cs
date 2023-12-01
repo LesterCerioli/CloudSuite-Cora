@@ -2,6 +2,7 @@
 using CloudSuite.Modules.Cora.Domain.Contracts;
 using CloudSuite.Modules.Cora.Domain.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,64 +24,65 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Cora
 
 		
 
-		public Task Add(Transfer transfer)
+		public async Task Add(Transfer transfer)
 		{
-			throw new NotImplementedException();
+			await Task.Run(() =>
+			{
+				DbSet.Add(transfer);
+				Db.SaveChangesAsync();
+			});
 		}
 
-		public Task<Transfer> GetByAccountNumber(string accountNumber)
+		
+		public async Task<Transfer> GetByAmount(string amount)
 		{
-			throw new NotImplementedException();
+			return await DbSet.FirstOrDefaultAsync(k => k.Amoumt == amount);
 		}
 
-		public Task<Transfer> GetByAmount(string amount)
+		public async Task<Transfer> GetByBankCodeRecipient(string bankCode)
 		{
-			throw new NotImplementedException();
+			return await DbSet.FirstOrDefaultAsync(k => k.BankCodeRecipient == bankCode);
 		}
 
-		public Task<Transfer> GetByBankCodeRecipient(string bankCode)
+		public async Task<Transfer> GetByBranchNumberRecipient(string branchNumber)
 		{
-			throw new NotImplementedException();
+			return await DbSet.FirstOrDefaultAsync(k => k.BranchNumberRecipient == branchNumber);
 		}
 
-		public Task<Transfer> GetByBranchNumberRecipient(string branchNumber)
+		public async Task<Transfer> GetByCategory(string category)
 		{
-			throw new NotImplementedException();
+			return await DbSet.FirstOrDefaultAsync(k => k.Category == category);
 		}
 
-		public Task<Transfer> GetByCategory(string category)
+		public async Task<Transfer> GetByCode(string code)
 		{
-			throw new NotImplementedException();
+			return await DbSet.FirstOrDefaultAsync(k => k.Code == code);
 		}
 
-		public Task<Transfer> GetByCode(string code)
+		public async Task<Transfer> GetByScheduled(DateTimeOffset scheduled)
 		{
-			throw new NotImplementedException();
+			return await DbSet.FirstOrDefaultAsync(k => k.Scheduled == scheduled);
 		}
 
-		public Task<Transfer> GetByScheduled(DateTimeOffset scheduled)
+		public async Task<Transfer> GetByStatus(string status)
 		{
-			throw new NotImplementedException();
+			return await DbSet.FirstOrDefaultAsync(k => k.Status == status);
 		}
 
-		public Task<Transfer> GetByStatus(string status)
+		public async Task<IEnumerable<Transfer>> GetList()
 		{
-			throw new NotImplementedException();
-		}
-
-		public Task<IEnumerable<Transfer>> GetList()
-		{
-			throw new NotImplementedException();
+			return await DbSet.ToListAsync();
+			
 		}
 
 		public void Remove(Transfer transfer)
 		{
-			throw new NotImplementedException();
+			Db.Remove(transfer);
 		}
 
 		public void Update(Transfer transfer)
 		{
-			throw new NotImplementedException();
+			Db.Update(transfer);
 		}
 	}
 }
