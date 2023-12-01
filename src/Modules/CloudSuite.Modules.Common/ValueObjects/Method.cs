@@ -7,13 +7,12 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Common.ValueObjects
 {
-	public class Customer : ValueObject
+	public class Method : ValueObject
 	{
-        public string FirstName { get; set; }
+        public bool? PIX { get; set; }
 
-        public string MiddleName { get; set; }
-
-        public string LastName { get; set; }
+        // Payment by Bar-Code
+		public bool? BankSlip { get; set; }
 
         protected override IEnumerable<object> GetEqualityComponents()
 		{

@@ -1,6 +1,7 @@
 using CloudSuite.Modules.Common.Enums.Cora;
 using CloudSuite.Modules.Common.ValueObjects;
 using CloudSuite.Modules.Cora.Application.Handlers.Account;
+using CloudSuite.Modules.Cora.Application.Handlers.Extract;
 using CloudSuite.Modules.Cora.Application.Handlers.Extrato;
 using CloudSuite.Modules.Cora.Application.ViewModels;
 using System;
@@ -17,8 +18,7 @@ namespace CloudSuite.Modules.Cora.Application.Services.Contracts
 
         Task<ExtractViewModel> GetByEndDate(DateTimeOffset endDate);
 
-        Task<ExtractViewModel> GetByCustomer(Customer customer);
-
+        
         Task<ExtractViewModel> GetByEntryType(OperationTypeEnum entryType);
 
         Task<ExtractViewModel> GetByEntryAmount(decimal entryAmount);

@@ -37,11 +37,7 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Cora
 			});
 		}
 
-		public async Task<Extract> GetByCustomer(Customer customer)
-		{
-			return await DbSet.FirstOrDefaultAsync(e => e.Customer == customer);
-		}
-
+		
 		public async Task<Extract> GetByEndDate(DateTimeOffset endDate)
 		{
 			return await DbSet.FirstOrDefaultAsync(e => e.EndDate == endDate);

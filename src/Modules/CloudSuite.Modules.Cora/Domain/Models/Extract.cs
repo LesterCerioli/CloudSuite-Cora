@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using CloudSuite.Modules.Common.Enums.Cora;
 using CloudSuite.Modules.Common.ValueObjects;
+using CloudSuite.Modules.Cora.Domain.Models.Payments;
 using NetDevPack.Domain;
 
 namespace CloudSuite.Modules.Cora.Domain.Models
@@ -9,7 +10,29 @@ namespace CloudSuite.Modules.Cora.Domain.Models
     {
         private List<Transaction> _transactions;
 
-        public Extract(DateTimeOffset startDate, decimal? startBalance, 
+		public Extract(DateTimeOffset startDate, decimal? startBalance, DateTimeOffset? endDate)
+		{
+			StartDate = startDate;
+			StartBalance = startBalance;
+			EndDate = endDate;
+		}
+
+		public Extract(decimal? entryAmount, decimal? endBalance, DateTimeOffset? endDate, decimal? startBalance, DateTimeOffset startDate, string? headerBusinessDocument, string? headerBusinessName)
+		{
+			EntryAmount = entryAmount;
+			EndBalance = endBalance;
+			EndDate = endDate;
+			StartBalance = startBalance;
+			StartDate = startDate;
+			HeaderBusinessDocument = headerBusinessDocument;
+			HeaderBusinessName = headerBusinessName;
+		}
+
+		public Extract(decimal? entryAmount, decimal? endBalance, DateTimeOffset? endDate, decimal? startBalance, DateTimeOffset startDate, string? headerBusinessDocument, string? headerBusinessName, decimal? aggregationsCreditTotal, decimal? aggregationsDebitTotal) : this(entryAmount, endBalance, endDate, startBalance, startDate, headerBusinessDocument, headerBusinessName)
+		{
+		}
+
+		public Extract(DateTimeOffset startDate, decimal? startBalance, 
         DateTimeOffset? endDate, decimal? endBalance, 
         Customer customer, Transaction transaction,
         decimal? aggregationsCreditTotal, decimal? aggregationsDebitTotal,

@@ -18,7 +18,7 @@ namespace CloudSuite.Modules.Cora.Application.Tests.Services
 		public async Task GetByAccountDigit_ShouldReturnMappedViewModel()
 		{
 			// Arrange
-			var accountDigit = "123456";
+			var accountDigit = "34";
 			var accountRepositoryMock = new Mock<IAccountRepository>();
 			var mediatorHandlerMock = new Mock<IMediatorHandler>();
 			var mapperMock = new Mock<IMapper>();
