@@ -32,4 +32,4 @@ jobs:
     displayName: 'Publish code coverage'
     inputs:
       codeCoverageTool: Cobertura
-      summaryFileLocation: $(Build.SourcesDirectory)/coverlet/reports/Cobertura.xml  
+      summaryFileLocation: '$(Build.SourcesDirectory)/test/TestResults/**/*.xml'
