@@ -39,17 +39,17 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Cora
 
 		public async Task<Extract> GetByCustomer(Customer customer)
 		{
-			return await DbSet.FirstOrDefaultAsync(c => c.Customer == customer);
+			return await DbSet.FirstOrDefaultAsync(e => e.Customer == customer);
 		}
 
 		public async Task<Extract> GetByEndDate(DateTimeOffset endDate)
 		{
-			return await DbSet.FirstOrDefaultAsync(c => c.EndDate == endDate);
+			return await DbSet.FirstOrDefaultAsync(e => e.EndDate == endDate);
 		}
 
 		public async Task<Extract> GetByEntryAmount(decimal entryAmount)
 		{
-			return await DbSet.FirstOrDefaultAsync(c => c.EntryAmount == entryAmount);
+			return await DbSet.FirstOrDefaultAsync(e => e.EntryAmount == entryAmount);
 		}
 
 		//public async Task<Extract> GetByEntryType(OperationTypeEnum entryType)
@@ -59,7 +59,7 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Cora
 
 		public async Task<Extract> GetByStartDate(DateTimeOffset startDate)
 		{
-			return await DbSet.FirstOrDefaultAsync(c => c.StartDate == startDate);
+			return await DbSet.FirstOrDefaultAsync(e => e.StartDate == startDate);
 		}
 
 		public async Task<IEnumerable<Extract>> GetList()

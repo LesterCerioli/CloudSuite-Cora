@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Cora
 {
-	public class ExtractEFCoreMapping : IEntityTypeConfiguration<Extract>
+	public class TransferFilterEFCoreMapping : IEntityTypeConfiguration<TransferFilter>
 	{
-		public void Configure(EntityTypeBuilder<Extract> builder)
+		public void Configure(EntityTypeBuilder<TransferFilter> builder)
 		{
-			builder.HasKey(e => e.Id);
+			builder.HasKey(d => d.Id);
 		}
 	}
 }
