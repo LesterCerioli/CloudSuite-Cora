@@ -7,12 +7,10 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Transactions
 {
     public class CreateTransactionCommand : IRequest<CreateTransactionResponse>
     {
+        
+
         public Guid Id { get; private set; }
-
-        public OperationTypeEnum Operation { get; private set; }
-
-        public TransactionTypeEnum TransactionTypeEnum { get; private set; }
-
+        
         public decimal? EntryAmount { get; private set; }
 
         public DateTimeOffset? EntryCreatedAt { get; private set; }
@@ -25,17 +23,20 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Transactions
 
         public string? EntryTransactionCounterPartyIdentity { get; private set; }
 
-        public TransactionEntity GetEntity()
+        public CreateTransactionCommand()
+        {
+            Id = Guid.NewGuid();
+        }
+
+		public TransactionEntity GetEntity()
         {
             return new TransactionEntity(
-                Operation,
-                TransactionTypeEnum,
-                EntryAmount,
-                EntryCreatedAt,
-                EntryTransactionDescription,
-                EntryTransactionCounterPartyName,
-                TransactiOnorder,
-                EntryTransactionCounterPartyIdentity);
+                this.EntryAmount,
+                this.EntryCreatedAt,
+                this.EntryTransactionDescription,
+                this.EntryTransactionCounterPartyName,
+                this.TransactiOnorder,
+                this.EntryTransactionCounterPartyIdentity);
         }
 
     }
