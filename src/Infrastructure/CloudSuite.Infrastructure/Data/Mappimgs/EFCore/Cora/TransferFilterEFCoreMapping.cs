@@ -14,6 +14,15 @@ namespace CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Cora
 		public void Configure(EntityTypeBuilder<TransferFilter> builder)
 		{
 			builder.HasKey(d => d.Id);
+
+			builder.Property(d => d.StartDate)
+				.IsRequired(); // Adjust as needed
+
+			builder.Property(d => d.EndDate)
+				.IsRequired(); // Adjust as needed
+
+			builder.Property(d => d.Page)
+				.HasMaxLength(50);
 		}
 	}
 }
