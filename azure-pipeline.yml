@@ -42,3 +42,37 @@ jobs:
     inputs:
       codeCoverageTool: Cobertura
       summaryFileLocation: '$(Build.SourcesDirectory)/test/TestResults/**/*.xml'
+
+- job: LinuxRelease
+  pool:
+    name: 'DK3'
+  variables:
+    buildConfiguration: 'Release'
+  steps:
+  - task: UseDotNet@2
+    displayName: 'Use .NET Core sdk'
+    inputs:
+      packageType: 'sdk'
+      version: '6.0.413'
+  - script: dotnet build ./CloudSuite.sln
+    displayName: 'dotnet build $(buildConfiguration)'
+  - task: DotNetCoreCLI@2
+    displayName: 'run tests'
+    inputs:
+      command: test
+      arguments:  '--configuration $(buildConfiguration) --logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:Exclude=[xunit.*]*%2c[System.*]*'
+      projects: 'test/**/*.csproj'
+      nobuild: true
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: custom
+      custom: tool
+      arguments: install --tool-path . dotnet-reportgenerator-globaltool
+      displayName: Install ReportGenerator tool
+  - script: ./reportgenerator -reports:$(Build.SourcesDirectory)/test/**/coverage.cobertura.xml -targetdir:$(Build.SourcesDirectory)/coverlet/reports -reporttypes:"HtmlInline_AzurePipelines;Cobertura"
+    displayName: Create reports   
+  - task: PublishCodeCoverageResults@1
+    displayName: 'Publish code coverage'
+    inputs:
+      codeCoverageTool: Cobertura
+      summaryFileLocation: $(Build.SourcesDirectory)/coverlet/reports/Cobertura.xml  
