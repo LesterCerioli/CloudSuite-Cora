@@ -26,11 +26,14 @@ jobs:
       projects: 'test/**/*.csproj'
       nobuild: true
 
-  - script: dotnet tool install -g dotnet-reportgenerator-globaltool
-    displayName: 'Install ReportGenerator tool'
-  
-  - script: reportgenerator "-reports:$(Agent.TempDirectory)/TestResults/**/*.xml" "-targetdir:$(Build.SourcesDirectory)/coveragereport" -reporttypes:"HtmlInline;JsonSummary"
-    displayName: 'Generate Code Coverage Report'
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: custom
+      custom: tool
+      arguments: install --tool-path . dotnet-reportgenerator-globaltool
+      displayName: Install ReportGenerator tool
+  - script: ./reportgenerator "-reports:$(Build.SourcesDirectory)/test/**/coverage.cobertura.xml" "-targetdir:$(Build.SourcesDirectory)/coverlet/reports" "-reporttypes:HtmlInline_AzurePipelines;Cobertura"
+    displayName: Create reports
   
      
   
