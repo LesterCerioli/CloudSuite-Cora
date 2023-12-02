@@ -25,6 +25,12 @@ jobs:
       arguments:  '--logger trx /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:Exclude=[xunit.*]*%2c[System.*]*'
       projects: 'test/**/*.csproj'
       nobuild: true
+
+  - script: dotnet tool install -g dotnet-reportgenerator-globaltool
+    displayName: 'Install ReportGenerator tool'
+  
+  - script: reportgenerator "-reports:$(Agent.TempDirectory)/TestResults/**/*.xml" "-targetdir:$(Build.SourcesDirectory)/coveragereport" -reporttypes:"HtmlInline;JsonSummary"
+    displayName: 'Generate Code Coverage Report'
   
      
   
