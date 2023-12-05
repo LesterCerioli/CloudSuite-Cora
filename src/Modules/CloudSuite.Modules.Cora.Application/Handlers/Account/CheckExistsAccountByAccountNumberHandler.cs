@@ -22,7 +22,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Account
 
         public async Task<CheckExistsAccountByAccountNumberResponse> Handle(CheckExistsAccountByAccountNumberRequest request, CancellationToken cancellationToken)
         {
-            _logger.LogInformation($"CheckExtractExistsByDateRequest: {JsonSerializer.Serialize(request)}");
+            _logger.LogInformation($"CheckExistsAccountByAccountNumberRequest: {JsonSerializer.Serialize(request)}");
             var validationResult = new CheckExistsAccountByAccountNumberRequestValidation().Validate(request);
 
             if (validationResult.IsValid)

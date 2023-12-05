@@ -14,7 +14,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Customer
 
         public async Task<CheckCustomerExistsBySocialReasonResponse> Handle(CheckCustomerExistsBySocialReasonRequest request, CancellationToken cancellationToken)
         {
-            _logger.LogInformation($"CheckPacienteExistsByCpfRequest: {JsonSerializer.Serialize(request)}");
+            _logger.LogInformation($"CheckCustomerExistsBySocialReasonRequest: {JsonSerializer.Serialize(request)}");
             var validationResult = new CheckCustomerExistsBySocialReasonRequestValition().Validate(request);
 
             if (validationResult.IsValid)

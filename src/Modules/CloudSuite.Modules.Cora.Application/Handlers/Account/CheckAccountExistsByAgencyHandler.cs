@@ -26,7 +26,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Account
 
         public async Task<CheckAccountExistsByAgencyResponse> Handle(CheckAccountExistsByAgencyRequest request, CancellationToken cancellationToken)
         {
-            _logger.LogInformation($"CheckPacienteExistsByCpfRequest: {JsonSerializer.Serialize(request)}");
+            _logger.LogInformation($"CheckAccountExistsByAgencyRequest: {JsonSerializer.Serialize(request)}");
             var validationResult = new CheckAccountExistsByAgencyRequestValition().Validate(request);
 
             if (validationResult.IsValid)

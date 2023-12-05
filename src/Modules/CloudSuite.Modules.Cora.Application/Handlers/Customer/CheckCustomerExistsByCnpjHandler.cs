@@ -27,7 +27,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Customer
 
         public async Task<CheckCustomerExistsByCnpjResponse> Handle(CheckCustomerExistsByCnpjRequest request, CancellationToken cancellationToken)
         {
-            _logger.LogInformation($"CheckPacienteExistsByCpfRequest: {JsonSerializer.Serialize(request)}");
+            _logger.LogInformation($"CheckCustomerExistsByCnpjRequest: {JsonSerializer.Serialize(request)}");
             var validationResult = new CheckCustomerExistsByCnpjRequestValidation ().Validate(request);
 
             if (validationResult.IsValid)

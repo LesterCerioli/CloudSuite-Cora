@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Cora.Application.Handlers.Account
@@ -25,7 +26,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Account
 
         public async Task<CheckAccountExistsByBankNameResponse> Handle(CheckAccountExistsByBankNameRequest request, CancellationToken cancellationToken)
         {
-            _logger.LogInformation($"CheckPacienteExistsByCpfRequest: {JsonSerializer.Serialize(request)}");
+            _logger.LogInformation($"CheckAccountExistsByBankNameRequest: {JsonSerializer.Serialize(request)}");
             var validationResult = new CheckAccountExistsByBankNameRequestValition().Validate(request);
 
             if (validationResult.IsValid)
