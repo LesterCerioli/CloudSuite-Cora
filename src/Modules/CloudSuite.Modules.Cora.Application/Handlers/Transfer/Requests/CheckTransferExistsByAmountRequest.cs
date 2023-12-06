@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Cora.Application.Handlers.Transfer.Requests
 {
-    public class CheckTransferExistsByAccountNumberRequest : IRequest<CheckTransferExistsByAccountNumberResponse>
+    public class CheckTransferExistsByAmountRequest : IRequest<CheckTransferExistsByAmountResponse>
     {
         public Guid Id {  get; private set; }
-        public string AccountNumber {  get; set; }
+        public string Amount {  get; set; }
 
-        public CheckTransferExistsByAccountNumberRequest(string accountNumber)
+        public CheckTransferExistsByAmountRequest(string amount)
         {
             Id = Guid.NewGuid();
-            AccountNumber = accountNumber;
+            Amount = amount;
         }
     }
 }

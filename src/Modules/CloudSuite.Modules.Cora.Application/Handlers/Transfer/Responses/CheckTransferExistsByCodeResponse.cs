@@ -8,21 +8,22 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Cora.Application.Handlers.Transfer.Responses
 {
-    public class CheckTransferExistsByBranchNumberRecipientResponse : Response
+    public class CheckTransferExistsByCodeResponse : Response
     {
-        public Guid RequestId {  get; private set; }
+        public Guid RequestId { get; private set; }
         public bool Exists {  get; set; }
 
-        public CheckTransferExistsByBranchNumberRecipientResponse(Guid requestId, bool exists, ValidationResult result)
+        public CheckTransferExistsByCodeResponse(Guid requestId, bool exists, ValidationResult result)
         {
             RequestId = requestId;
             Exists = exists;
-            foreach (var item in result.Errors) {
-                this.AddError(item.ErrorMessage);
+            foreach(var item in result.Errors)
+            {
+                this.AddError(item.ErrorMessage)
             }
         }
 
-        public CheckTransferExistsByBranchNumberRecipientResponse(Guid requestId, string falhaValidacao)
+        public CheckTransferExistsByCodeResponse(Guid requestId, string falhaValidacao)
         {
             RequestId = requestId;
             Exists = false;

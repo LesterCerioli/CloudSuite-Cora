@@ -2,15 +2,14 @@
 using FluentValidation.Results;
 
 
-
 namespace CloudSuite.Modules.Cora.Application.Handlers.Transfer.Responses
 {
-    public class CheckTransferExistsByBankCodeRecipientResponse : Response
+    public class CheckTransferExistsByCategoryResponse : Response
     {
         public Guid RequestId { get; private set; }
         public bool Exists { get; set; }
 
-        public CheckTransferExistsByBankCodeRecipientResponse(Guid requestId, bool exists, ValidationResult result)
+        public CheckTransferExistsByCategoryResponse(Guid requestId, bool exists, ValidationResult result)
         {
             RequestId = requestId;
             Exists = exists;
@@ -19,7 +18,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Transfer.Responses
             }
         }
 
-        public CheckTransferExistsByBankCodeRecipientResponse(Guid requestId, string falhaValidacao)
+        public CheckTransferExistsByCategoryResponse(Guid requestId, string falhaValidacao)
         {
             RequestId = requestId;
             Exists = false;
