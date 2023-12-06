@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Cora.Application.Handlers.TransferFilter.Requests
 {
-	public class CheckTransferFilterExistsByEndDateRequest : IRequest<CheckTransferFilterExistsByEndDateResponse>
-	{
+	public class CheckTransferFilterExistsByStartDateRequest : IRequest<CheckTransferFilterExistsByStartDateResponse>
+    {
 		public Guid Id {  get; private set; }
-		public DateTime EndDate {  get; set; }
+		public DateTime StartDate { get; set; }
 
-        public CheckTransferFilterExistsByEndDateRequest(DateTime endDate)
+        public CheckTransferFilterExistsByStartDateRequest(DateTime startDate)
         {
             Id = Guid.NewGuid();
-            EndDate = endDate;
+            StartDate = startDate;
         }
     }
 }

@@ -1,29 +1,29 @@
-﻿using CloudSuite.Modules.Cora.Application.Core;
-using FluentValidation.Results;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CloudSuite.Modules.Cora.Application.Handlers.TransferFilter.Responses;
+using MediatR;
+using TransferFilterEntity = CloudSuite.Modules.Cora.Domain.Models.TransferFilter;
+
 
 namespace CloudSuite.Modules.Cora.Application.Handlers.TransferFilter
 {
-	public class CreateTransferFilterCommand : Response
+	public class CreateTransferFilterCommand : IRequest<CreateTransferFilterResponse>
 	{
-		public Guid RequestId { get; private set; }
+		public Guid Id { get; private set; }
+		public DateTime StartDate {  get; set; }
+		public DateTime EndDate { get; set; }
+		public string Page {  get; set; }
 
-        public CreateTransferFilterCommand(Guid requestId, ValidationResult result)
+        public CreateTransferFilterCommand()
         {
-            RequestId = requestId;
-            foreach (var item in result.Errors) {
-                this.AddError(item.ErrorMessage);
-            }
+            Id = Guid.NewGuid();
         }
 
-        public CreateTransferFilterCommand(Guid requestId, string falhaValidacao)
-        {
-            RequestId = requestId;
-            this.AddError(falhaValidacao);
+		public TransferFilterEntity GetEntity()
+		{
+			return new TransferFilterEntity(
+				StartDate,
+				EndDate,
+				Page);
+
         }
     }
 }
