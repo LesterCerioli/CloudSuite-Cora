@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace CloudSuite.Modules.Cora.Application.Validation.Transaction
 {
-    public class CheckTransactionExistsByCounterPartyNameRequestValidation : AbstractValidator<CheckTransactionExistByCounterPartyNameRequest>
+    public class CheckTransactionExistsByCounterPartyNameRequestValidation : AbstractValidator<CheckTransactionExistsByCounterPartyNameRequest>
     {
         public CheckTransactionExistsByCounterPartyNameRequestValidation()
         {

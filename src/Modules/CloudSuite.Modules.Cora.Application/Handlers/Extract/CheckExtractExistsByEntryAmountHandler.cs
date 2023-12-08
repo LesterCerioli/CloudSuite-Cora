@@ -1,5 +1,6 @@
 ﻿using CloudSuite.Modules.Cora.Application.Handlers.Extract.Request;
 using CloudSuite.Modules.Cora.Application.Handlers.Extract.Responses;
+using CloudSuite.Modules.Cora.Application.Validation.Extract;
 using CloudSuite.Modules.Cora.Domain.Contracts;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -42,7 +43,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Extract
                 catch (Exception ex)
                 {
                     _logger.LogCritical(ex.Message);
-                    return await Task.FromResult(new CheckExtractExistsByEntryAmountResponse(request.Id, "Não foi possível processar a solicitação.");
+                    return await Task.FromResult(new CheckExtractExistsByEntryAmountResponse(request.Id, "Não foi possível processar a solicitação."));
                 }
             }
             return await Task.FromResult(new CheckExtractExistsByEntryAmountResponse(request.Id, false, validationResult));

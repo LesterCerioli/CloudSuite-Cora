@@ -18,7 +18,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.TransferFilter.Responses
             RequestId = requestId;
             Exists = exists;
             foreach(var item in result.Errors) {
-                this.AddError(item.ErrorMessage)
+                this.AddError(item.ErrorMessage);
             }
         }
 

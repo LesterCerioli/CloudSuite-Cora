@@ -1,5 +1,6 @@
 ﻿using CloudSuite.Modules.Cora.Application.Handlers.TransferFilter.Requests;
 using CloudSuite.Modules.Cora.Application.Handlers.TransferFilter.Responses;
+using CloudSuite.Modules.Cora.Application.Validation.TransferFilter;
 using CloudSuite.Modules.Cora.Domain.Contracts;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -20,7 +21,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.TransferFilter
         public async Task<CheckTransferFilterExistsByStartDateResponse> Handle(CheckTransferFilterExistsByStartDateRequest request, CancellationToken cancellationToken)
         {
             _logger.LogInformation($"CheckTransferFilterExistsByStartDateRequest: {JsonSerializer.Serialize(request)}");
-            var validationResult = new CheckTransferFilterExistsByStartDateRequestValition().Validate(request);
+            var validationResult = new CheckTransferFilterExistsByStartDateRequestValidation().Validate(request);
 
             if (validationResult.IsValid)
             {
@@ -38,7 +39,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.TransferFilter
                 }
             }
 
-            eturn await Task.FromResult(new CheckTransferFilterExistsByStartDateResponse(request.Id, false, validationResult));
+            return await Task.FromResult(new CheckTransferFilterExistsByStartDateResponse(request.Id, false, validationResult));
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using CloudSuite.Modules.Cora.Application.Handlers.Transfer.Requests;
 using CloudSuite.Modules.Cora.Application.Handlers.Transfer.Responses;
+using CloudSuite.Modules.Cora.Application.Validation.Transfer;
 using CloudSuite.Modules.Cora.Domain.Contracts;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -34,7 +35,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Transfer
                 try
                 {
                     var transfer = await _repositorioTransfer.GetByAmount(request.Amount);
-                    if(transfer != null{
+                    if(transfer != null){
                         return await Task.FromResult(new CheckTransferExistsByAmountResponse(request.Id, true, validationResult));
                     }
                 }catch(Exception ex)

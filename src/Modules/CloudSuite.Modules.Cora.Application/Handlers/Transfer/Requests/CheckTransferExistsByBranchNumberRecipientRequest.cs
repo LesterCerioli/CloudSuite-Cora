@@ -10,12 +10,13 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Transfer.Requests
 {
     public class CheckTransferExistsByBranchNumberRecipientRequest : IRequest<CheckTransferExistsByBranchNumberRecipientResponse>
     {
-        public Guid Id {  get; private set; }
-        public string BranchNumberRecipient {  get; set; }
+        public Guid Id { get; private set; }
+        public string BranchNumberRecipient { get; set; }
 
         public CheckTransferExistsByBranchNumberRecipientRequest(string branchNumberRecipient)
         {
-            Id = Guid.NewGuid(;
+            Id = Guid.NewGuid();
             BranchNumberRecipient = branchNumberRecipient;
         }
     }
+}

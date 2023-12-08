@@ -17,5 +17,12 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Transfer.Responses
                 this.AddError(item.ErrorMessage);
             }
         }
+
+        public CheckTransferExistsByAmountResponse(Guid requestId, string falhaValidacao)
+        {
+            RequestId = requestId;
+            Exists = false;
+            this.AddError(falhaValidacao);
+        }
     }
 }

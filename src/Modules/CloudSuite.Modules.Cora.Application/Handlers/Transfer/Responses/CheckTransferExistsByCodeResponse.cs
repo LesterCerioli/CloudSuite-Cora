@@ -19,7 +19,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Transfer.Responses
             Exists = exists;
             foreach(var item in result.Errors)
             {
-                this.AddError(item.ErrorMessage)
+                this.AddError(item.ErrorMessage);
             }
         }
 
