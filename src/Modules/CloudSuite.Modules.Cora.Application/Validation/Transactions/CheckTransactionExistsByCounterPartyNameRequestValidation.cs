@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace CloudSuite.Modules.Cora.Application.Validation.Transaction
 {
-    public class CheckTransactionExistByCounterPartyNameRequestValidation : AbstractValidator<CheckTransactionExistByCounterPartyNameRequest>
+    public class CheckTransactionExistsByCounterPartyNameRequestValidation : AbstractValidator<CheckTransactionExistByCounterPartyNameRequest>
     {
-        public CheckTransactionExistByCounterPartyNameRequestValidation()
+        public CheckTransactionExistsByCounterPartyNameRequestValidation()
         {
             RuleFor(a => a.EntryTransactionCounterPartyName)
             .MinimumLength(3)

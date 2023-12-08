@@ -3,13 +3,13 @@ using FluentValidation.Results;
 
 namespace CloudSuite.Modules.Cora.Application.Handlers.Transactions.Responses
 {
-    public class CheckTransactionExistByCounterPartyNameResponse : Response
+    public class CheckTransactionExistsByCounterPartyNameResponse : Response
     {
         public Guid RequestId { get; private set; }
         public bool Exists { get; set; }
 
 
-        public CheckTransactionExistByCounterPartyNameResponse(Guid requestId, bool exists, ValidationResult result)
+        public CheckTransactionExistsByCounterPartyNameResponse(Guid requestId, bool exists, ValidationResult result)
         {
             RequestId = requestId;
             Exists = exists;
@@ -19,7 +19,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Transactions.Responses
             }
         }
 
-        public CheckTransactionExistByCounterPartyNameResponse(Guid requestId, string falseValidation)
+        public CheckTransactionExistsByCounterPartyNameResponse(Guid requestId, string falseValidation)
         {
             RequestId = requestId;
             Exists = false;

@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace CloudSuite.Modules.Cora.Application.Validation.Transaction
 {
-    public class CheckTransactionExistByTransactionOrderRequestValidation : AbstractValidator<CheckTransactionExistByTransactionOrderRequest>
+    public class CheckTransactionExistByTransactionOrderRequestValidation : AbstractValidator<CheckTransactionExistsByTransactionOrderRequest>
     {
 
         public CheckTransactionExistByTransactionOrderRequestValidation() 

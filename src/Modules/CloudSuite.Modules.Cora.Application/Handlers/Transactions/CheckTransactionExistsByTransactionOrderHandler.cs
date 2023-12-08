@@ -9,18 +9,18 @@ using System.Text.Json;
 
 namespace CloudSuite.Modules.Cora.Application.Handlers.Transactions
 {
-    public class CheckTransactionExistByTransactionOrderHandler : IRequestHandler<CheckTransactionExistByTransactionOrderRequest, CheckTransactionExistByTransactionOrderResponse>
+    public class CheckTransactionExistsByTransactionOrderHandler : IRequestHandler<CheckTransactionExistsByTransactionOrderRequest, CheckTransactionExistsByTransactionOrderResponse>
     {
         private TransactionRepository _transactionRepository;
-        private readonly ILogger<CheckTransactionExistByTransactionOrderHandler> _logger;
+        private readonly ILogger<CheckTransactionExistsByTransactionOrderHandler> _logger;
 
-        public CheckTransactionExistByTransactionOrderHandler(TransactionRepository transactionRepository, ILogger<CheckTransactionExistByTransactionOrderHandler> logger)
+        public CheckTransactionExistsByTransactionOrderHandler(TransactionRepository transactionRepository, ILogger<CheckTransactionExistsByTransactionOrderHandler> logger)
         {
             _transactionRepository = transactionRepository;
             _logger = logger;
         }
 
-        public async Task<CheckTransactionExistByTransactionOrderResponse> Handle(CheckTransactionExistByTransactionOrderRequest request, CancellationToken cancellationToken)
+        public async Task<CheckTransactionExistsByTransactionOrderResponse> Handle(CheckTransactionExistsByTransactionOrderRequest request, CancellationToken cancellationToken)
         {
             _logger.LogInformation($"CheckTransactionExistByTransactionOrderRequest: {JsonSerializer.Serialize(request)}");
             var validationResult = new CheckTransactionExistByTransactionOrderRequestValidation().Validate(request);
@@ -34,16 +34,16 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Transactions
 
                     if (transactionOrderExist != null)
                     {
-                        return await Task.FromResult(new CheckTransactionExistByTransactionOrderResponse(request.Id, true, validationResult));
+                        return await Task.FromResult(new CheckTransactionExistsByTransactionOrderResponse(request.Id, true, validationResult));
                     }
                 }
                 catch (Exception ex)
                 {
                     _logger.LogCritical(ex.Message);
-                    return await Task.FromResult(new CheckTransactionExistByTransactionOrderResponse(request.Id, "Failed to process the request."));
+                    return await Task.FromResult(new CheckTransactionExistsByTransactionOrderResponse(request.Id, "Failed to process the request."));
                 }
             }
-            return await Task.FromResult(new CheckTransactionExistByTransactionOrderResponse(request.Id, false, validationResult));
+            return await Task.FromResult(new CheckTransactionExistsByTransactionOrderResponse(request.Id, false, validationResult));
         }
     }
 }

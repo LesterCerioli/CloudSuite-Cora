@@ -9,22 +9,22 @@ using System.Text.Json;
 
 namespace CloudSuite.Modules.Cora.Application.Handlers.Transactions
 {
-    public class CheckTransactionExistByCounterPartyNameHandler : IRequestHandler<CheckTransactionExistByCounterPartyNameRequest, CheckTransactionExistByCounterPartyNameResponse>
+    public class CheckTransactionExistsByCounterPartyNameHandler : IRequestHandler<CheckTransactionExistsByCounterPartyNameRequest, CheckTransactionExistsByCounterPartyNameResponse>
     {
 
         private TransactionRepository _transactionRepository;
-        private readonly ILogger<CheckTransactionExistByCounterPartyNameHandler> _logger;
+        private readonly ILogger<CheckTransactionExistsByCounterPartyNameHandler> _logger;
 
-        public CheckTransactionExistByCounterPartyNameHandler(TransactionRepository transactionRepository, ILogger<CheckTransactionExistByCounterPartyNameHandler> logger)
+        public CheckTransactionExistsByCounterPartyNameHandler(TransactionRepository transactionRepository, ILogger<CheckTransactionExistsByCounterPartyNameHandler> logger)
         {
             _transactionRepository = transactionRepository;
             _logger = logger;
         }
 
-        public async Task<CheckTransactionExistByCounterPartyNameResponse> Handle(CheckTransactionExistByCounterPartyNameRequest request, CancellationToken cancellationToken)
+        public async Task<CheckTransactionExistsByCounterPartyNameResponse> Handle(CheckTransactionExistsByCounterPartyNameRequest request, CancellationToken cancellationToken)
         {
             _logger.LogInformation($"CheckTransactionExistByCounterPartyNameRequest: {JsonSerializer.Serialize(request)}");
-            var validationResult = new CheckTransactionExistByCounterPartyNameRequestValidation().Validate(request);
+            var validationResult = new CheckTransactionExistsByCounterPartyNameRequestValidation().Validate(request);
 
             if (validationResult.IsValid)
             {
@@ -35,16 +35,16 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Transactions
 
                     if (transactionOrderExist != null)
                     {
-                        return await Task.FromResult(new CheckTransactionExistByCounterPartyNameResponse(request.Id, true, validationResult));
+                        return await Task.FromResult(new CheckTransactionExistsByCounterPartyNameResponse(request.Id, true, validationResult));
                     }
                 }
                 catch (Exception ex)
                 {
                     _logger.LogCritical(ex.Message);
-                    return await Task.FromResult(new CheckTransactionExistByCounterPartyNameResponse(request.Id, "Failed to process the request."));
+                    return await Task.FromResult(new CheckTransactionExistsByCounterPartyNameResponse(request.Id, "Failed to process the request."));
                 }
             }
-            return await Task.FromResult(new CheckTransactionExistByCounterPartyNameResponse(request.Id, false, validationResult));
+            return await Task.FromResult(new CheckTransactionExistsByCounterPartyNameResponse(request.Id, false, validationResult));
         }
     }
 }
