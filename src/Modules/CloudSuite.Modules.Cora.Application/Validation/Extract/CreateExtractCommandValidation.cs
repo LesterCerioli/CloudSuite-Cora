@@ -38,7 +38,10 @@ namespace CloudSuite.Modules.Cora.Application.Validation.Extract
             .Must(balance => balance is int)
             .WithMessage("Balance deve ser um número inteiro.");
 
-                                       
+            RuleFor(a => a.EntryAmount)
+                .NotNull()
+                .WithMessage("Campo obrigatório");
+
 
             RuleFor(a => a.AggregationsCreditTotal)
             .Must(aggregationsCreditTotal => aggregationsCreditTotal >= 0)

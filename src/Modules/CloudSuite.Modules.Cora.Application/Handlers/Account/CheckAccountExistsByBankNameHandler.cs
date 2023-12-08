@@ -1,5 +1,6 @@
 ﻿using CloudSuite.Modules.Cora.Application.Handlers.Account.Requests;
 using CloudSuite.Modules.Cora.Application.Handlers.Account.Responses;
+using CloudSuite.Modules.Cora.Application.Validation.Account;
 using CloudSuite.Modules.Cora.Domain.Contracts;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -27,7 +28,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Account
         public async Task<CheckAccountExistsByBankNameResponse> Handle(CheckAccountExistsByBankNameRequest request, CancellationToken cancellationToken)
         {
             _logger.LogInformation($"CheckAccountExistsByBankNameRequest: {JsonSerializer.Serialize(request)}");
-            var validationResult = new CheckAccountExistsByBankNameRequestValition().Validate(request);
+            var validationResult = new CheckAccountExistsByBankNameRequestValidation().Validate(request);
 
             if (validationResult.IsValid)
             {

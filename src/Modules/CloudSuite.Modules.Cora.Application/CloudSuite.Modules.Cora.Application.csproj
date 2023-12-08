@@ -20,4 +20,10 @@
     <ProjectReference Include="..\CloudSuite.Modules.Cora\CloudSuite.Modules.Cora.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Validation\Customer\" />
+    <Folder Include="Validation\TransferFilter\" />
+    <Folder Include="Validation\Transfer\" />
+  </ItemGroup>
+
 </Project>

@@ -1,6 +1,7 @@
 ﻿using CloudSuite.Modules.Common.ValueObjects;
 using CloudSuite.Modules.Cora.Application.Handlers.Account.Requests;
 using CloudSuite.Modules.Cora.Application.Handlers.Account.Responses;
+using CloudSuite.Modules.Cora.Application.Validation.Account;
 using CloudSuite.Modules.Cora.Domain.Contracts;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -27,7 +28,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Account
         public async Task<CheckAccountExistsByAgencyResponse> Handle(CheckAccountExistsByAgencyRequest request, CancellationToken cancellationToken)
         {
             _logger.LogInformation($"CheckAccountExistsByAgencyRequest: {JsonSerializer.Serialize(request)}");
-            var validationResult = new CheckAccountExistsByAgencyRequestValition().Validate(request);
+            var validationResult = new CheckAccountExistsByAgencyRequestValidation().Validate(request);
 
             if (validationResult.IsValid)
             {

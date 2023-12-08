@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace CloudSuite.Modules.Cora.Application.Validation.Account
 {
-    public class CheckExistsAccountByAccountNumberRequestValidation : AbstractValidator<CheckExistsAccountByAccountNumberRequest>
+    public class CheckAccountExistsByAccountNumberRequestValidation : AbstractValidator<CheckAccountExistsByAccountNumberRequest>
     {
 
-        public CheckExistsAccountByAccountNumberRequestValidation()
+        public CheckAccountExistsByAccountNumberRequestValidation()
         {
             RuleFor(c => c.AccountNumber)
             .NotEmpty()
