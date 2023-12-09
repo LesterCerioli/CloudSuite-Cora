@@ -1,4 +1,5 @@
-﻿using CloudSuite.Modules.Cora.Application.Handlers.Extrato;
+﻿using CloudSuite.Modules.Cora.Application.Handlers.Extract;
+using CloudSuite.Modules.Cora.Application.Handlers.Extrato;
 using FluentValidation;
 
 namespace CloudSuite.Modules.Cora.Application.Validation.Extract
@@ -37,51 +38,7 @@ namespace CloudSuite.Modules.Cora.Application.Validation.Extract
             .Must(balance => balance is int)
             .WithMessage("Balance deve ser um número inteiro.");
 
-            RuleFor(c => c.Customer.FirstName)
-             .NotEmpty()
-             .WithMessage("O primeiro nome é obrigatório.")
-             .MinimumLength(3)
-             .WithMessage("O primeiro nome deve ter pelo menos 3 caracteres.")
-             .MaximumLength(40)
-             .WithMessage("O primeiro nome deve ter no máximo 40 caracteres.");
-
-            RuleFor(c => c.Customer.MiddleName)
-            .MinimumLength(3)
-            .When(c => !string.IsNullOrEmpty(c.Customer.MiddleName))
-            .WithMessage("O nome do meio deve ter pelo menos 3 caracteres.")
-            .MaximumLength(40)
-            .When(c => !string.IsNullOrEmpty(c.Customer.MiddleName))
-            .WithMessage("O nome do meio deve ter no máximo 40 caracteres.");
-
-            RuleFor(c => c.Customer.LastName)
-            .MinimumLength(3)
-            .WithMessage("O sobrenome deve ter pelo menos 3 caracteres.")
-            .MaximumLength(40)
-            .WithMessage("O sobrenome deve ter no máximo 40 caracteres.");
-
-            //RuleFor(a => a.Transaction.Operation)
-            //.IsInEnum()
-            //.WithMessage("A operação não é um tipo enum válido.");
-
-            RuleFor(a => a.Transaction.TransactionTypeEnum)
-            .IsInEnum()
-            .WithMessage("O tipo de transação não é um tipo enum válido.");
-
-            RuleFor(a => a.Transaction.EntryTransactionDescription)
-            .MinimumLength(3)
-            .WithMessage("A descrição da transação deve ter pelo menos 3 caracteres.")
-            .MaximumLength(100)
-            .WithMessage("A descrição da transação deve ter no máximo 100 caracteres.");
-
-            RuleFor(a => a.Transaction.EntryTransactionCounterPartyName)
-            .MinimumLength(3)
-            .WithMessage("O nome da contraparte da transação deve ter pelo menos 3 caracteres.")
-            .MaximumLength(60)
-            .WithMessage("O nome da contraparte da transação deve ter no máximo 60 caracteres.");
-
-            RuleFor(a => a.Transaction.TransactiOnorder)
-            .Matches(@"^\d+$")
-            .WithMessage("A ordem de transação deve conter apenas números. Letras e símbolos não são permitidos.");
+                                       
 
             RuleFor(a => a.AggregationsCreditTotal)
             .Must(aggregationsCreditTotal => aggregationsCreditTotal >= 0)

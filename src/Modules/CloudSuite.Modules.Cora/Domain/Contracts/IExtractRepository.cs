@@ -15,9 +15,6 @@ namespace CloudSuite.Modules.Cora.Domain.Contracts
 
             Task<Extract> GetByEndDate(DateTimeOffset endDate);
             
-            Task<Extract> GetByCustomer(Customer customer);
-
-            
             Task<Extract> GetByEntryAmount(decimal entryAmount);
 
             Task<IEnumerable<Extract>> GetList();

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CloudSuite.Modules.Common.Enums.Cora;
 using CloudSuite.Modules.Common.ValueObjects;
+using CloudSuite.Modules.Cora.Application.Handlers.Extract;
 using CloudSuite.Modules.Cora.Application.Handlers.Extrato;
 using CloudSuite.Modules.Cora.Application.Services.Contracts;
 using CloudSuite.Modules.Cora.Application.ViewModels;
@@ -29,11 +30,7 @@ namespace CloudSuite.Modules.Cora.Application.Services.Implementations
 			_mediator = mediator;
 			_mapper = mapper;
 		}
-		public async Task<ExtractViewModel> GetByCustomer(Customer customer)
-		{
-			return _mapper.Map<ExtractViewModel>(await _extractRepository.GetByCustomer(customer));
-		}
-
+		
 		public async Task<ExtractViewModel> GetByEndDate(DateTimeOffset endDate)
 		{
 			return _mapper.Map<ExtractViewModel>(await _extractRepository.GetByEndDate(endDate));

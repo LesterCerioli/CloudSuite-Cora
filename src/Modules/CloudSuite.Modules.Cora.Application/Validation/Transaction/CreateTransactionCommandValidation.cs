@@ -10,14 +10,7 @@ namespace CloudSuite.Modules.Cora.Application.Validation.Transaction
         { 
             var command = new CreateTransactionCommand();
 
-            RuleFor(a => a.Operation)
-            .IsInEnum()
-            .WithMessage("A operação não é um tipo enum válido.");
-
-            RuleFor(a => a.TransactionTypeEnum)
-            .IsInEnum()
-            .WithMessage("A operação não é um tipo enum válido.");
-
+            
             RuleFor(a => a.EntryAmount)
             .Must(amount => amount == default(decimal))
             .WithMessage("O valor total deve ser um número decimal válido.");
