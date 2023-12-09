@@ -7,7 +7,7 @@ trigger:
 
 jobs:
 
-- job: Linux
+- job: LinuxRelease
   pool:
     name: 'DK3'
   steps:
