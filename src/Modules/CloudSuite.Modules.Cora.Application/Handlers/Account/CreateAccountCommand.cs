@@ -21,7 +21,12 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Account
         public string? BankName { get; set; }
         public string? BankCode { get; set; }
 
-        public AccountEntity GetEntity()
+        public CreateAccountCommand()
+        {
+            Id = Guid.NewGuid();
+        }
+
+		public AccountEntity GetEntity()
         {
             return new AccountEntity(
                 this.AccountNumber,

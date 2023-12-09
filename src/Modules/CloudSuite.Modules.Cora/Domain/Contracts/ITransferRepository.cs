@@ -19,8 +19,6 @@ namespace CloudSuite.Modules.Cora.Domain.Contracts
 
 		Task<Transfer> GetByBranchNumberRecipient(string branchNumber);
 
-		Task<Transfer> GetByAccountNumber(string accountNumber);
-
 		Task<Transfer> GetByScheduled(DateTimeOffset scheduled);
 
 		Task<Transfer> GetByStatus(string status);

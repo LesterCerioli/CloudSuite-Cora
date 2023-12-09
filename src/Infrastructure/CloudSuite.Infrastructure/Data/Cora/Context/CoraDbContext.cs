@@ -1,5 +1,7 @@
 ﻿using CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Cora;
+using CloudSuite.Infrastructure.Data.Mappimgs.EFCore.Cora.Payments;
 using CloudSuite.Modules.Cora.Domain.Models;
+using CloudSuite.Modules.Cora.Domain.Models.Payments;
 using FluentValidation.Results;
 using Microsoft.EntityFrameworkCore;
 using NetDevPack.Messaging;
@@ -29,6 +31,10 @@ namespace CloudSuite.Infrastructure.Data.Cora.Context
 
         public DbSet<Transfer> Transfers { get; set; }
 
+        public DbSet<Boleto> Boletos { get; set; }
+
+        public DbSet<Customer> Customers { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Ignore<ValidationResult>();
@@ -44,6 +50,8 @@ namespace CloudSuite.Infrastructure.Data.Cora.Context
             modelBuilder.ApplyConfiguration(new TransferFilterEFCoreMapping());
             modelBuilder.ApplyConfiguration(new TransferEFCoreMapping());
             modelBuilder.ApplyConfiguration(new TransactionEFCoreMapping());
+            modelBuilder.ApplyConfiguration(new BoletiEFCoreMapping());
+            modelBuilder.ApplyConfiguration(new CustomerEFCoreMapping());
 
             modelBuilder.Entity<Account>(c =>
             {
@@ -68,6 +76,16 @@ namespace CloudSuite.Infrastructure.Data.Cora.Context
             modelBuilder.Entity<Transfer>(c =>
             {
                 c.ToTable("Transfers");
+            });
+
+            modelBuilder.Entity<Boleto>(c =>
+            {
+                c.ToTable("Boletos");
+            });
+
+            modelBuilder.Entity<Customer>(c =>
+            {
+                c.ToTable("Customers");
             });
         }
     }

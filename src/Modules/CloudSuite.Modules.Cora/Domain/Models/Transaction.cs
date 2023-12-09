@@ -18,7 +18,7 @@ namespace CloudSuite.Modules.Cora.Domain.Models
             EntryTransactionCounterPartyIdentity = entryTransactionCounterPartyIdentity;
         }
 
-        //public Transaction() {}
+        public Transaction() {}
         //public OperationTypeEnum Operation { get; private set; }
 
         public TransactionTypeEnum TransactionTypeEnum { get; private set; }
