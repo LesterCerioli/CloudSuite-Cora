@@ -15,10 +15,10 @@ namespace CloudSuite.Modules.Cora.Application.Validation.Transfer
             RuleFor(c => c.AccountNumber)
                 .NotEmpty()
                 .WithMessage("Número da conta é obrigatório.")
-                .MinimumLength(7)
-                .WithMessage("a conta deve ter 7 caracteres.")
-                .MaximumLength(7)
-                .WithMessage("a conta deve ter 7 caracteres.");
+                .MinimumLength(6)
+                .WithMessage("a conta deve ter 6 caracteres.")
+                .MaximumLength(6)
+                .WithMessage("a conta deve ter 6 caracteres.");
         }
     }
 }
