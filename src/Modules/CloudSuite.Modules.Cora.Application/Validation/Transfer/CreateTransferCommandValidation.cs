@@ -12,7 +12,7 @@ namespace CloudSuite.Modules.Cora.Application.Validation.Transfer
     {
         public CreateTransferCommandValidation()
         {
-            RuleFor(c => c.AccountNumber)
+            RuleFor(c => c.AccountNumberAccount)
                 .NotEmpty()
                 .WithMessage("Número da conta é obrigatório.")
                 .MinimumLength(6)

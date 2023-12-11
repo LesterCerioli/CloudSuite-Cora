@@ -11,15 +11,15 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Transfer
 
 
         //Account
-        public string? AgencyAccount { get; private set; }
+        public string? AgencyAccount { get; set; }
 
-        public string? AccountNumberAccount { get; private set; }
+        public string? AccountNumberAccount { get; set; }
 
-        public string? AccountDigitAccount { get; private set; }
+        public string? AccountDigitAccount { get; set; }
 
-        public string? BankNameAccount { get; private set; }
+        public string? BankNameAccount { get; set; }
 
-        public string? BankCodeAccount { get; private set; }
+        public string? BankCodeAccount { get; set; }
 
 
         //Transfer
@@ -57,18 +57,18 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Transfer
         public TransferEntity GetEntity()
         {
             return new TransferEntity(
-                new Account(AgencyAccount, AccountNumberAccount, AccountDigitAccount, BankNameAccount, BankNameAccount),
-                Amount,
-                Description,
-                Code,
-                Category,
-                CreationDate,
-                BankCodeRecipient,
-                BranchNumberRecipient,
-                AccountNumberRecipient,
-                Scheduled,
-                AccountType,
-                Status
+                new Domain.Models.Account(this.AgencyAccount, this.AccountNumberAccount, this.AccountDigitAccount, this.BankNameAccount, this.BankNameAccount),
+                this.Amount,
+                this.Description,
+                this.Code,
+                this.Category,
+                this.CreationDate,
+                this.BankCodeRecipient,
+                this.BranchNumberRecipient,
+                this.AccountNumberRecipient,
+                this.Scheduled,
+                this.AccountType,
+                this.Status
                 );
         }
 
