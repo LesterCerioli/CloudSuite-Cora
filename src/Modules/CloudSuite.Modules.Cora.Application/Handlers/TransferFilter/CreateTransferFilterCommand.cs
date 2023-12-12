@@ -23,7 +23,6 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.TransferFilter
 				StartDate,
 				EndDate,
 				Page);
-
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using CloudSuite.Modules.Cora.Application.Handlers.Transfer.Requests;
 using CloudSuite.Modules.Cora.Application.Handlers.Transfer.Responses;
+using CloudSuite.Modules.Cora.Application.Validation.Transfer;
 using CloudSuite.Modules.Cora.Domain.Contracts;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -26,7 +27,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Transfer
         public async Task<CheckTransferExistsByCategoryResponse> Handle(CheckTransferExistsByCategoryRequest request, CancellationToken cancellationToken)
         {
             _logger.LogInformation($"CheckTransferExistsByCategoruResquest: {JsonSerializer.Serialize(request)}");
-            var validationResult = new CheckTransferExistsByCategoryRequestValidtion().Validate(request);
+            var validationResult = new CheckTransferExistsByCategoryRequestValidation().Validate(request);
 
             if(validationResult.IsValid)
             {

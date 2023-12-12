@@ -1,6 +1,7 @@
 ﻿using CloudSuite.Modules.Common.ValueObjects;
 using CloudSuite.Modules.Cora.Application.Handlers.Customer.Requests;
 using CloudSuite.Modules.Cora.Application.Handlers.Customer.Responses;
+using CloudSuite.Modules.Cora.Application.Validation.Customer;
 using CloudSuite.Modules.Cora.Domain.Contracts.Payments;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -28,7 +29,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Customer
         public async Task<CheckCustomerExistsByCnpjResponse> Handle(CheckCustomerExistsByCnpjRequest request, CancellationToken cancellationToken)
         {
             _logger.LogInformation($"CheckCustomerExistsByCnpjRequest: {JsonSerializer.Serialize(request)}");
-            var validationResult = new CheckCustomerExistsByCnpjRequestValidation ().Validate(request);
+            var validationResult = new CheckCustomerExistsByCnpjRequestValidation().Validate(request);
 
             if (validationResult.IsValid)
             {

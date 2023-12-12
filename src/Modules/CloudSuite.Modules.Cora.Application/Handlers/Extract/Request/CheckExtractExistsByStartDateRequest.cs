@@ -13,7 +13,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Extract.Request
 		public Guid Id { get; private set; }
 		public DateTimeOffset StartDate { get; set; }
 
-        public CheckExtractExistsByStartDateRequest(DateTimeOffset? startDate)
+        public CheckExtractExistsByStartDateRequest(DateTimeOffset startDate)
         {
             Id = Guid.NewGuid();
             StartDate = startDate;

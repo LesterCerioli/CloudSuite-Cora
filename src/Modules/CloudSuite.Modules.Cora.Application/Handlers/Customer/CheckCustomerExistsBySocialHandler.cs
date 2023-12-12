@@ -1,5 +1,6 @@
 ﻿using CloudSuite.Modules.Cora.Application.Handlers.Customer.Requests;
 using CloudSuite.Modules.Cora.Application.Handlers.Customer.Responses;
+using CloudSuite.Modules.Cora.Application.Validation.Customer;
 using CloudSuite.Modules.Cora.Domain.Contracts.Payments;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -15,7 +16,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.Customer
         public async Task<CheckCustomerExistsBySocialReasonResponse> Handle(CheckCustomerExistsBySocialReasonRequest request, CancellationToken cancellationToken)
         {
             _logger.LogInformation($"CheckCustomerExistsBySocialReasonRequest: {JsonSerializer.Serialize(request)}");
-            var validationResult = new CheckCustomerExistsBySocialReasonRequestValition().Validate(request);
+            var validationResult = new CheckCustomerExistsBySocialReasonRequestValidation().Validate(request);
 
             if (validationResult.IsValid)
             {

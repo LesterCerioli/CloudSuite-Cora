@@ -1,5 +1,6 @@
 ﻿using CloudSuite.Modules.Cora.Application.Handlers.Transfer.Requests;
 using CloudSuite.Modules.Cora.Application.Handlers.Transfer.Responses;
+using CloudSuite.Modules.Cora.Application.Validation.Transfer;
 using CloudSuite.Modules.Cora.Domain.Contracts;
 using MediatR;
 using Microsoft.Extensions.Logging;

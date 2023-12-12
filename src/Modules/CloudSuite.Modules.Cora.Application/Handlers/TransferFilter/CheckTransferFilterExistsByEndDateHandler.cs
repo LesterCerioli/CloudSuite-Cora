@@ -1,6 +1,7 @@
 ﻿using CloudSuite.Modules.Common.ValueObjects;
 using CloudSuite.Modules.Cora.Application.Handlers.TransferFilter.Requests;
 using CloudSuite.Modules.Cora.Application.Handlers.TransferFilter.Responses;
+using CloudSuite.Modules.Cora.Application.Validation.TransferFilter;
 using CloudSuite.Modules.Cora.Domain.Contracts;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -23,7 +24,7 @@ namespace CloudSuite.Modules.Cora.Application.Handlers.TransferFilter
         public async Task<CheckTransferFilterExistsByEndDateResponse> Handle(CheckTransferFilterExistsByEndDateRequest request, CancellationToken cancellationToken)
         {
             _logger.LogInformation($"CheckTransferFilterExistsByEndDateRequest: {JsonSerializer.Serialize(request)}");
-            var validationResult = new CheckTransferFilterExistsByEndDateReuqestValidation().Validate(request);
+            var validationResult = new CheckTransferFilterExistsByEndDateRequestValidation().Validate(request);
 
             if (validationResult.IsValid)
             {
