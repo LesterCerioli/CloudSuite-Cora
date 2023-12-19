@@ -18,9 +18,6 @@ namespace CloudSuite.Modules.Cora.Application.Services.Contracts
 
         Task<ExtractViewModel> GetByEndDate(DateTimeOffset endDate);
 
-        
-        Task<ExtractViewModel> GetByEntryType(OperationTypeEnum entryType);
-
         Task<ExtractViewModel> GetByEntryAmount(decimal entryAmount);
 
         Task Save(CreateExtractCommand commandCreate);

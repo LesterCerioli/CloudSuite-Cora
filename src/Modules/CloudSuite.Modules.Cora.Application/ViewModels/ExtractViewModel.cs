@@ -11,7 +11,7 @@ namespace CloudSuite.Modules.Cora.Application.ViewModels
 	public class ExtractViewModel
 	{
 		[Key]
-		public Guid Id { get; private set; }
+		public Guid Id { get; set; }
 
 		[DisplayName("Data Inicio")]
 		public DateTimeOffset StartDate { get; set; }
@@ -24,21 +24,13 @@ namespace CloudSuite.Modules.Cora.Application.ViewModels
 		
 		[DisplayName("Valor de Entrada")]
 		[Required(ErrorMessage = "O {0} campo deve ser preenchido.")]
-		public int? EntryAmount { get; set; }
-
-		[DisplayName("Data de Entrada")]
-		[Required(ErrorMessage = "O {0} campo deve ser preenchido.")]
-		public string EntryCreatedAt { get; set; }
-
-		[DisplayName("Descricao da Transacao de Entrada")]
-		public string EntryTransactionDescription { get; set; }
-
+		public decimal? EntryAmount { get; set; }
 
 		[DisplayName("Valor de Credito Total")]
-		public string AggregationsCreditTotal { get; set; }
+		public decimal AggregationsCreditTotal { get; set; }
 
 		[DisplayName("Valor de Debito Total")]
-		public string AggregationsDebitTotal { get; set; }
+		public decimal AggregationsDebitTotal { get; set; }
 				
 		
 	}

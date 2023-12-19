@@ -56,10 +56,5 @@ namespace CloudSuite.Modules.Cora.Application.Services.Implementations
 		{
 			await _extractRepository.Add(commandCreate.GetEntity());
 		}
-
-		public Task<ExtractViewModel> GetByEntryType(OperationTypeEnum entryType)
-		{
-			throw new NotImplementedException();
-		}
-	}
+    }
 }
