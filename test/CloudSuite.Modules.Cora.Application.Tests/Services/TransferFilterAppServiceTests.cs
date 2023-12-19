@@ -144,7 +144,7 @@ namespace CloudSuite.Modules.Cora.Application.Tests.Services
                 mapperMock.Object
                 );
 
-            transferFilterRepositoryMock.Setup(repo => repo.GetByStartDate(It.IsAny<DateTime>()))
+            transferFilterRepositoryMock.Setup(repo => repo.GetByEndDate(It.IsAny<DateTime>()))
                 .ReturnsAsync((TransferFilter)null); // Simulate null result from the repository
 
             // Act

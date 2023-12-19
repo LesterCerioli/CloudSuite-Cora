@@ -260,10 +260,10 @@ namespace CloudSuite.Modules.Cora.Application.Tests.Services
                 mapperMock.Object
                 );
 
-            transferRepositoryMock.Setup(repo => repo.GetByCode(It.IsAny<string>())).ThrowsAsync(new ArgumentException("Invalid data")); // Simulate null result from the repository
+            transferRepositoryMock.Setup(repo => repo.GetByCategory(It.IsAny<string>())).ThrowsAsync(new ArgumentException("Invalid data")); // Simulate null result from the repository
 
             // Assert
-            await Assert.ThrowsAsync<ArgumentException>(() => transferAppService.GetByCode(category));
+            await Assert.ThrowsAsync<ArgumentException>(() => transferAppService.GetByCategory(category));
         }
 
         [Theory]

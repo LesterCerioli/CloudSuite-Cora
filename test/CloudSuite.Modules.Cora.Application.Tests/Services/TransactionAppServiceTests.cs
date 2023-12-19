@@ -128,9 +128,9 @@ namespace CloudSuite.Modules.Cora.Application.Tests.Services
         }
 
         [Theory]
-        [InlineData("Percy Jackson")]
-        [InlineData("Annabeth Smith")]
-        [InlineData("John Doe")]
+        [InlineData("8273323")]
+        [InlineData("4378392")]
+        [InlineData("2394032")]
         public async Task GetByTransactionOrder_ShouldHandleNullRepositoryResult(string transactionOrder)
         {
             // Arrange
@@ -155,9 +155,9 @@ namespace CloudSuite.Modules.Cora.Application.Tests.Services
         }
 
         [Theory]
-        [InlineData("Anderson Silva")]
-        [InlineData("João Santos")]
-        [InlineData("Lucas Silva")]
+        [InlineData("367283")]
+        [InlineData("983741")]
+        [InlineData("637821")]
         public async Task GetByTransactionOrder_ShouldHandleInvalidMappingResult(string transactionOrder)
         {
             // Arrange
