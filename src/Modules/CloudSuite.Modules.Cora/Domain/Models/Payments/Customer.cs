@@ -16,5 +16,13 @@ namespace CloudSuite.Modules.Cora.Domain.Models.Payments
         public string? ResponsibeContact { get; private set; }
 
         public Telephone Telephone { get; private set; }
+
+        public Customer(Cnpj cnpj, string? socialReason, string? responsibeContact, Telephone telephone)
+        {
+            Cnpj = cnpj;
+            SocialReason = socialReason;
+            ResponsibeContact = responsibeContact;
+            Telephone = telephone;
+        }
     }
 }
