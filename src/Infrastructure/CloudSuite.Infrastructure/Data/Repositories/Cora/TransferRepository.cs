@@ -2,12 +2,6 @@
 using CloudSuite.Modules.Cora.Domain.Contracts;
 using CloudSuite.Modules.Cora.Domain.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics.Internal;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CloudSuite.Infrastructure.Data.Repositories.Cora
 {
@@ -22,8 +16,6 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Cora
 			DbSet = context.Transfers;
 		}
 
-		
-
 		public async Task Add(Transfer transfer)
 		{
 			await Task.Run(() =>
@@ -33,7 +25,6 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Cora
 			});
 		}
 
-		
 		public async Task<Transfer> GetByAmount(string amount)
 		{
 			return await DbSet.FirstOrDefaultAsync(k => k.Amoumt == amount);
@@ -84,5 +75,10 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Cora
 		{
 			Db.Update(transfer);
 		}
-	}
+
+        public void Dispose()
+        {
+            Db.Dispose();
+        }
+    }
 }

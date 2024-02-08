@@ -37,6 +37,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Modules\CloudSuite.Modules.Cora\CloudSuite.Modules.Cora.csproj" />
+	  <ProjectReference Include="..\..\Modules\CloudSuite.Modules.Common\CloudSuite.Modules.Common.csproj" />
   </ItemGroup>
 
   
