@@ -5,7 +5,11 @@ namespace CloudSuite.Modules.Cora.Domain.Models.Payments
 {
     public class PaymentScheduling : Entity, IAggregateRoot
     {
-        public PaymentScheduling(string? digitableLine, DateTime? scheduleAt, string? paymentStatus, string? code, decimal? amount, DateTime? createdAt)
+		public PaymentScheduling()
+		{
+		}
+
+		public PaymentScheduling(string? digitableLine, DateTime? scheduleAt, string? paymentStatus, string? code, decimal? amount, DateTime? createdAt)
         {
             DigitableLine = digitableLine;
             ScheduleAt = DateTime.Now;
@@ -15,8 +19,18 @@ namespace CloudSuite.Modules.Cora.Domain.Models.Payments
             CreatedAt = DateTime.Now;
         }
 
-        //Código de barras de Pagamento
-        public string? DigitableLine {get; private set;}
+		public PaymentScheduling(string? digitableLine, string? paymentStatus, string? code, DateTime? createdAt, DateTime? scheduleAt, decimal? amount)
+		{
+			DigitableLine = digitableLine;
+			PaymentStatus = paymentStatus;
+			Code = code;
+			CreatedAt = createdAt;
+			ScheduleAt = scheduleAt;
+			Amount = amount;
+		}
+
+		//Código de barras de Pagamento
+		public string? DigitableLine {get; private set;}
 
 
         //Data de agendamento de Pagamento

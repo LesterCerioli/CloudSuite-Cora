@@ -1,4 +1,5 @@
 using CloudSuite.Infrastructure.Data.Cora.Context;
+using CloudSuite.Modules.Cora.Domain.Contracts.Payments;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CloudSuite.Infrastructure.CrossCutting
@@ -9,8 +10,12 @@ namespace CloudSuite.Infrastructure.CrossCutting
         {
             service.AddScoped<CoraDbContext>();
 
+            service.AddScoped<IPaymentSchedulingRepository>();
+
             // Application
-            
+
+            service.AddScoped<IPaymentSchedullingAppService, PaymentSchedullingAppService>();
+
 
         }
     }
