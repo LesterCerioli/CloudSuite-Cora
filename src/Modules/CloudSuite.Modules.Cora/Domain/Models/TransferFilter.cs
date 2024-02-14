@@ -16,11 +16,5 @@ namespace CloudSuite.Modules.Cora.Domain.Models
         public string? Page { get; private set; }
 
 
-        public TransferFilter(DateTime? startDate, DateTime? endDate, string? page)
-        {
-            StartDate = startDate;
-            EndDate = endDate;
-            Page = page;
-        }
     }
 }
