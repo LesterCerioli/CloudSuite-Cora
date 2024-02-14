@@ -10,6 +10,8 @@ namespace CloudSuite.Modules.Cora.Domain.Models.Payments
 {
 	public class Boleto : Entity, IAggregateRoot
 	{
+		private string? method;
+
 		public Boleto(string? amountTotal, string? status, 
 			DateTimeOffset? createdAt, DateTimeOffset? finalizedAt, 
 			decimal? totalPaid, Method method, decimal? interest, 
@@ -26,7 +28,20 @@ namespace CloudSuite.Modules.Cora.Domain.Models.Payments
 			Code = code;
 		}
 		public Boleto() { }
-		
+
+		public Boleto(string? amountTotal, string? status, string? code, DateTimeOffset? createdAt, DateTimeOffset? finalizedAt, decimal? totalPaid, string? method, decimal? interest, decimal? fine)
+		{
+			AmountTotal = amountTotal;
+			Status = status;
+			Code = code;
+			CreatedAt = createdAt;
+			FinalizedAt = finalizedAt;
+			TotalPaid = totalPaid;
+			this.method = method;
+			Interest = interest;
+			Fine = fine;
+		}
+
 		public string? AmountTotal { get; private set; }
 
         public string? Status { get; private set; }

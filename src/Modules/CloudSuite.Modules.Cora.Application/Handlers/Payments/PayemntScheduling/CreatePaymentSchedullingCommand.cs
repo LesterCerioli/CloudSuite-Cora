@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using CloudSuite.Modules.Cora.Application.Handlers.Payments.PayemntScheduling.Responses;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using PaymentSchedullingEntity = CloudSuite.Modules.Cora.Domain.Models.Payments.
 
 namespace CloudSuite.Modules.Cora.Application.Handlers.Payments.PayemntScheduling
 {
-	public class CreatePaymentSchedullingCommand : IRequest<CreatePaymentSchedullingCommand>
+	public class CreatePaymentSchedullingCommand : IRequest<CreatePaymentSchedullingResponse>
 	{
         public Guid Id { get; private set; }
 
