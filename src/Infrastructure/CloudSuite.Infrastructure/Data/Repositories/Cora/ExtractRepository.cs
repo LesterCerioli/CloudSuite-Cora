@@ -1,16 +1,7 @@
 ﻿using CloudSuite.Infrastructure.Data.Cora.Context;
-using CloudSuite.Modules.Common.Enums.Cora;
-using CloudSuite.Modules.Common.ValueObjects;
 using CloudSuite.Modules.Cora.Domain.Contracts;
 using CloudSuite.Modules.Cora.Domain.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CloudSuite.Infrastructure.Data.Repositories.Cora
 {
@@ -23,10 +14,7 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Cora
 		{
 			Db = context;
 			DbSet = context.Extracts;
-
 		}
-
-		
 
 		public async Task Add(Extract extract)
 		{
@@ -37,7 +25,6 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Cora
 			});
 		}
 
-		
 		public async Task<Extract> GetByEndDate(DateTimeOffset endDate)
 		{
 			return await DbSet.FirstOrDefaultAsync(e => e.EndDate == endDate);
@@ -47,11 +34,6 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Cora
 		{
 			return await DbSet.FirstOrDefaultAsync(e => e.EntryAmount == entryAmount);
 		}
-
-		//public async Task<Extract> GetByEntryType(OperationTypeEnum entryType)
-		//{
-			//return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.EntryTypeEnum == entryType);
-		//}
 
 		public async Task<Extract> GetByStartDate(DateTimeOffset startDate)
 		{
@@ -72,5 +54,10 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Cora
 		{
 			DbSet.Update(extract);
 		}
-	}
+
+        public void Dispose()
+        {
+            Db.Dispose();
+        }
+    }
 }

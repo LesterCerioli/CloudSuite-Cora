@@ -3,11 +3,6 @@ using CloudSuite.Infrastructure.Data.Cora.Context;
 using CloudSuite.Modules.Cora.Domain.Contracts;
 using CloudSuite.Modules.Cora.Domain.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CloudSuite.Infrastructure.Data.Repositories.Cora
 {
@@ -21,8 +16,6 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Cora
 			Db = context;
 			DbSet = context.Accounts;
 		}
-
-		
 
 		public async Task Add(Account account)
 		{
@@ -72,5 +65,10 @@ namespace CloudSuite.Infrastructure.Data.Repositories.Cora
 		{
 			DbSet.Update(account);
 		}
-	}
+
+        public void Dispose()
+        {
+            Db.Dispose();
+        }
+    }
 }

@@ -1,48 +1,63 @@
-﻿using CloudSuite.Modules.Cora.Domain.Contracts.Payments;
+﻿using CloudSuite.Infrastructure.Data.Cora.Context;
+using CloudSuite.Modules.Cora.Domain.Contracts.Payments;
 using CloudSuite.Modules.Cora.Domain.Models.Payments;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace CloudSuite.Infrastructure.Data.Repositories.Cora.Payments
 {
 	public class BoletoRepository : IBoletoRepository
 	{
-		public Task Add(Boleto boleto)
-		{
-			throw new NotImplementedException();
-		}
+        protected readonly CoraDbContext Db;
+        protected readonly DbSet<Boleto> DbSet;
 
-		public Task<Boleto> GetByAmountTotal(string amountTotal)
-		{
-			throw new NotImplementedException();
-		}
+        public BoletoRepository(CoraDbContext db, DbSet<Boleto> dbSet)
+        {
+            Db = db;
+            DbSet = dbSet;
+        }
 
-		public Task<Boleto> GetByCode(string code)
+        public async Task Add(Boleto boleto)
 		{
-			throw new NotImplementedException();
-		}
+            await Task.Run(() => {
+                DbSet.Add(boleto);
+                Db.SaveChanges();
+            });
+        }
 
-		public Task<Boleto> GetByTotalPaid(decimal totalPaid)
+		public async Task<Boleto> GetByAmountTotal(string amountTotal)
 		{
-			throw new NotImplementedException();
-		}
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.AmountTotal == amountTotal);
+        }
 
-		public Task<IEnumerable<Boleto>> GetList()
+		public async Task<Boleto> GetByCode(string code)
 		{
-			throw new NotImplementedException();
-		}
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Code == code);
+        }
+
+		public async Task<Boleto> GetByTotalPaid(decimal totalPaid)
+		{
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.TotalPaid == totalPaid);
+        }
+
+		public async Task<IEnumerable<Boleto>> GetList()
+		{
+            return await DbSet.ToListAsync();
+        }
 
 		public void Remove(Boleto boleto)
 		{
-			throw new NotImplementedException();
-		}
+            DbSet.Remove(boleto);
+        }
 
 		public void Update(Boleto boleto)
 		{
-			throw new NotImplementedException();
-		}
-	}
+            DbSet.Update(boleto);
+        }
+
+        public void Dispose()
+        {
+            Db.Dispose();
+        }
+    }
 }
