@@ -1,4 +1,6 @@
 using CloudSuite.Infrastructure.Data.Cora.Context;
+using CloudSuite.Modules.Cora.Application.Services.Contracts;
+using CloudSuite.Modules.Cora.Application.Services.Implementations;
 using CloudSuite.Modules.Cora.Domain.Contracts.Payments;
 using Microsoft.Extensions.DependencyInjection;
 
