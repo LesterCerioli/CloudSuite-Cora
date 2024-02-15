@@ -56,9 +56,11 @@ namespace CloudSuite.Modules.Cora.Domain.Models.Payments
 
         public Method Method { get; private set; }
 
-		//Valor total em centavos dos juros pagos.
-		//Total value in cents of interest paid.
-		public decimal? Interest { get; private set; }
+        public Pagamento Pagamento { get; private set; }
+
+        //Valor total em centavos dos juros pagos.
+        //Total value in cents of interest paid.
+        public decimal? Interest { get; private set; }
 
 		//Total value in cents of the fine paid.
 		//Total value in cents of the fine paid.
