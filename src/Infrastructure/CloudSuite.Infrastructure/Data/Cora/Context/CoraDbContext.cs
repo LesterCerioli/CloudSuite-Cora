@@ -37,6 +37,8 @@ namespace CloudSuite.Infrastructure.Data.Cora.Context
 
         public DbSet<PaymentScheduling> PaymentSchedullings { get; set; }
 
+        public DbSet<Pagamento> Pagamentos { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Ignore<ValidationResult>();
@@ -55,6 +57,7 @@ namespace CloudSuite.Infrastructure.Data.Cora.Context
             modelBuilder.ApplyConfiguration(new BoletiEFCoreMapping());
             modelBuilder.ApplyConfiguration(new CustomerEFCoreMapping());
             modelBuilder.ApplyConfiguration(new PaymentSchedullingEFCoreMapping());
+            modelBuilder.ApplyConfiguration(new PagamentoEFCoreMapping());
 
             modelBuilder.Entity<Account>(c =>
             {
